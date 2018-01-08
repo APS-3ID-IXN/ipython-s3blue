@@ -10,7 +10,7 @@ class MotorDialValues(Device):
 class MyEpicsMotorWithDial(EpicsMotor):
 	dial = Cpt(MotorDialValues, "")
 
-# m1 = MyEpicsMotorWithDial('xxx:m1', name='m1')
+# m1 = MyEpicsMotorWithDial('3idc:m1', name='m1')
 
 m1 = EpicsMotor('3idc:m1', name='m1')	# A2_Theta
 m2 = EpicsMotor('3idc:m2', name='m2')	# A2_Chi
