@@ -10,8 +10,8 @@ from ophyd import PVPositioner, PVPositionerPC
 # Set up default complex devices
 
 class MotorDialValues(Device):
-    value = Cpt(EpicsSignalRO, ".DRBV")
-    setpoint = Cpt(EpicsSignal, ".DVAL")
+    value = Component(EpicsSignalRO, ".DRBV")
+    setpoint = Component(EpicsSignal, ".DVAL")
 
 class MyEpicsMotorWithDial(EpicsMotor):
-    dial = Cpt(MotorDialValues, "")
+    dial = Component(MotorDialValues, "")
