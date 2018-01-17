@@ -1,7 +1,6 @@
 print(__file__)
-from ophyd import (PVPositioner, EpicsMotor, EpicsSignal, EpicsSignalRO,
-                   PVPositionerPC, Device)
-from ophyd import Component as Cpt
+
+"""motors, stages, positioners, ..."""
 
 # m1 = MyEpicsMotorWithDial('3idc:m1', name='m1')
 
