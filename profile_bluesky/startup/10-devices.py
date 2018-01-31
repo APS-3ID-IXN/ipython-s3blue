@@ -9,10 +9,3 @@ from APS_BlueSky_tools.devices import userCalcsDevice
 
 
 # Set up default complex devices
-
-class MotorDialValues(Device):
-    value = Component(EpicsSignalRO, ".DRBV")
-    setpoint = Component(EpicsSignal, ".DVAL")
-
-class MyEpicsMotorWithDial(EpicsMotor):
-    dial = Component(MotorDialValues, "")
