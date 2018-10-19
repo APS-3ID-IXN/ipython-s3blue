@@ -66,14 +66,15 @@ class WriteMcaSpectraCallback(object):
     
     USAGE::
 
-       RE(overnight("file.txt"), write_mca_callback.receiver)
+       mca_writer_callback = WriteMcaSpectraCallback()
+       RE(overnight("file.txt"), mca_writer_callback.receiver)
 
     or::
 
        h = db[-1]
-       write_mca_callback = WriteMcaSpectraCallback()
+       mca_writer_callback = WriteMcaSpectraCallback()
        for name, doc in h.documents():
-           write_mca_callback.receiver(name, doc)
+           mca_writer_callback.receiver(name, doc)
 
     """
     
@@ -128,7 +129,7 @@ class WriteMcaSpectraCallback(object):
             self.filelist.append(_mca_writer(spectrum))
 
 
-write_mca_callback = WriteMcaSpectraCallback()
+mca_writer_callback = WriteMcaSpectraCallback()
 
 
 def user_plan(x_range, nx, y_range, ny, count_time=0.2, sample_name="no name"):
