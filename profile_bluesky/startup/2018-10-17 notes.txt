@@ -1,0 +1,16 @@
+
+normal start of Bluesky (from any shell)
+
+	use_bluesky.sh
+
+
+or --- use bash shell when running Bluesky
+
+	dy% bash
+
+make sure the Bluesky python is the default by activating its conda environment
+
+	bash-4.2$ source /APSshare/anaconda3/BlueSky/bin/activate base
+	(base) bash-4.2$ which python
+	/APSshare/anaconda3/x86_64/bin/python
+
