@@ -30,5 +30,19 @@ APS_devices.use_EPICS_scaler_channels(scaler)
 # userCalcs_3idc = APS_devices.userCalcsDevice("3idc:", name="userCalcs_3idc")
 
 
+energy_scan = SscanRecord("3idd:scan1", name="energy_scan")
+#energy_scan.stage_sigs["positioners.p1.setpoint_pv"] = test_energy.user_setpoint.pvname
+#energy_scan.stage_sigs["positioners.p1.readback_pv"] = test_energy.user_readback.pvname
+#energy_scan.stage_sigs["positioners.p1.start"] = -0.1
+#energy_scan.stage_sigs["positioners.p1.end"] = 0.1
+#energy_scan.stage_sigs["positioners.p1.step_size"] = 0.1
+#for d in range(1, 9):
+#    energy_scan.stage_sigs[f"detectors.d0{d}.input_pv"] = scaler.prefix + f".S{d}"
+#energy_scan.stage_sigs["refd"] = 6  # reference detector (scaler channel number)
+#energy_scan.stage_sigs["triggers.d1.trigger_pv"] = scaler.prefix + ".CNT"
+#energy_scan.stage_sigs["triggers.d1.trigger_value"] = 1
+#energy_scan.stage_sigs["pasm"] = "PEAK POS" # 3
+
+
 from ophyd.mca import EpicsMCA
 mca = EpicsMCA("3idd:mca1", name="mca")

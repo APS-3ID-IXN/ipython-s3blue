@@ -2,14 +2,6 @@ print(__file__)
 
 """motors, stages, positioners, ..."""
 
-if False:	# TODO: enable when ready to use
-	hrm_energy = EpicsSignal(
-		"3idb:HR3_ERdbkAO", 	# read_pv
-		write_pv = "3idb:HR3_EAO",
-		name = "hrm_energy"
-	)
-	test_energy = EpicsMotor("3idd:m999", name="test_energy")
-
 # m1 = MyEpicsMotorWithDial('3idc:m1', name='m1')
 
 #m1 = EpicsMotor('3idc:m1', name='m1', labels=("C-station",))	# A2_Theta
@@ -29,3 +21,12 @@ class NeatStage_3IDD(Device):
 
 neat_stage = NeatStage_3IDD("3idd:", name="neat_stage")
 
+
+if False:	# TODO: enable when ready to use
+	hrm_energy = EpicsSignal(
+		"3idb:HR3_ERdbkAO", 	# read_pv
+		write_pv = "3idb:HR3_EAO",
+		name = "hrm_energy"
+	)
+else:
+	test_energy = neat_stage.theta

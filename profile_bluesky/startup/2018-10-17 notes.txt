@@ -3,6 +3,12 @@ normal start of Bluesky (from any shell)
 
 	use_bluesky.sh
 
+This is your typical scan command in python
+
+    RE(user_plan(2, 3, 1, 5, 0.5, "this is a test sample"), mca_writer_callback.receiver)
+
+
+===============================================================
 
 or --- use bash shell when running Bluesky
 
@@ -13,4 +19,6 @@ make sure the Bluesky python is the default by activating its conda environment
 	bash-4.2$ source /APSshare/anaconda3/BlueSky/bin/activate base
 	(base) bash-4.2$ which python
 	/APSshare/anaconda3/x86_64/bin/python
+
+IPython configuration files are in ~/.ipython/profile_bluesky/startup
 
