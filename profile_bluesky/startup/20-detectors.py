@@ -22,7 +22,7 @@ aps_current = aps.current
 #    RE.install_suspender(suspend_APS_current)
 
 
-scaler = ScalerCH('3idd:scaler1', name='scaler')
+scaler = ScalerCH('3idb:scaler1', name='scaler')
 scaler.match_names()
 APS_devices.use_EPICS_scaler_channels(scaler)
 
@@ -30,7 +30,7 @@ APS_devices.use_EPICS_scaler_channels(scaler)
 # userCalcs_3idc = APS_devices.userCalcsDevice("3idc:", name="userCalcs_3idc")
 
 
-energy_scan = SscanRecord("3idd:scan1", name="energy_scan")
+energy_scan = SscanRecord("3idb:scan1", name="energy_scan")
 #energy_scan.stage_sigs["positioners.p1.setpoint_pv"] = test_energy.user_setpoint.pvname
 #energy_scan.stage_sigs["positioners.p1.readback_pv"] = test_energy.user_readback.pvname
 #energy_scan.stage_sigs["positioners.p1.start"] = -0.1
@@ -45,4 +45,4 @@ energy_scan = SscanRecord("3idd:scan1", name="energy_scan")
 
 
 from ophyd.mca import EpicsMCA
-mca = EpicsMCA("3idd:mca1", name="mca")
+mca = EpicsMCA("3ida:mca1", name="mca")

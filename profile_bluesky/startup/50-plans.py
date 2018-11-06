@@ -9,7 +9,7 @@ def _mca_writer(spectrum_dict):
     """
     write MCA spectrum from custom dict to data file in current directory
     """
-    fname = "mca-{}-{}.txt".format(
+    fname = "mca-{}-{}.dat".format(
         spectrum_dict["scan_id"],
         spectrum_dict["sequence"]
     )
@@ -135,10 +135,14 @@ mca_writer_callback = WriteMcaSpectraCallback()
 def optimize_energy_with_sscan_record():
     #energy_scan.stage()
     old = energy_scan.pasm.value
+    old_scaler_time = scaler.preset_time.value
+    old_mca_time = mca.preset_real_time.value
     yield from bps.mv(energy_scan.pasm, "PEAK POS")
+#    yield from bps.mv(mca.preset_real_time, old_scaler_time)
     yield from bps.sleep(.01)
     yield from bps.mv(energy_scan, 1)
     yield from bps.mv(energy_scan.pasm, old)
+#    yield from bps.mv(mca.preset_real_time, old_mca_time)
     #energy_scan.unstage()
 
 
@@ -175,6 +179,49 @@ def optimize_energy_per_step(detectors, step, pos_cache):
 def user_plan(x_range, nx, y_range, ny, count_time=0.2, sample_name="no name"):
     motor_args = []
     motor_args +=[neat_stage.y, -y_range, y_range, ny]
+    motor_args +=[neat_stage.x, -x_range, x_range, nx, False]
+    
+    yield from bps.mv(
+        mca.preset_real_time, count_time,
+        scaler.preset_time, count_time
+    )
+    _md = {
+        "sample_name": sample_name
+    }
+
+    yield from bp.rel_grid_scan(
+        [mca, scaler], 
+        *motor_args,
+        # per_step=None,  # use default
+        per_step=optimize_energy_per_step,
+        md=_md
+    )
+
+
+def user_plan2(x_range, nx, y_range, ny, scaler_time=0.2, mca_time=1.1, sample_name="no name"):
+    motor_args = []
+    motor_args +=[neat_stage.y, -y_range, y_range, ny]
+    motor_args +=[neat_stage.x, -x_range, x_range, nx, False]
+    
+    yield from bps.mv(
+        mca.preset_real_time, mca_time,
+        scaler.preset_time, scaler_time
+    )
+    _md = {
+        "sample_name": sample_name
+    }
+
+    yield from bp.rel_grid_scan(
+        [mca, scaler], 
+        *motor_args,
+        # per_step=None,  # use default
+        per_step=optimize_energy_per_step,
+        md=_md
+    )
+
+
+def user_plan1(x_range, nx, count_time=0.2, sample_name="no name"):
+    motor_args = []
     motor_args +=[neat_stage.x, -x_range, x_range, nx, False]
     
     yield from bps.mv(
