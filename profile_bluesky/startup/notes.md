@@ -41,3 +41,11 @@ IPython configuration files are in `~/.ipython/profile_bluesky/startup`
 1. type GitHub password (if asked)
 1. if all goes well, you will see green in the next screen, otherwise red and time to ask for help
 
+
+================================================================
+
+## To generate EPICS PVs for signaling to Bluesky
+
+See https://github.com/APS-3ID-IXN/ipython-s3blue/issues/5
+
+

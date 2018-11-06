@@ -1,0 +1,14 @@
+# EPICS database related to https://github.com/APS-3ID-IXN/ipython-s3blue/issues/5
+
+#   softIoc -d issue_5.db
+
+record (ao, "myhu:float") {
+    field(VAL, 0.0)
+    field(PREC, 3)
+}
+record (stringout, "myhu:short_string")
+record (stringout, "myhu:s3data_dir")
+record (stringout, "myhu:filename")
+record (bo, "myhu:optimize_request")
+record (longout, "myhu:integer")
+
