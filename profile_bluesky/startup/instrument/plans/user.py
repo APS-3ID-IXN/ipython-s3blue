@@ -15,6 +15,7 @@ from bluesky import plans as bp
 from bluesky import plan_stubs as bps
 from ..devices import mca, neat_stage, scaler
 from .optimize_energy import optimize_energy_per_step
+from .optimize_energy import optimize_energy_with_sscan_record
 import os
 
 
