@@ -13,5 +13,6 @@ logger.info("bluesky framework")
 from .framework import *
 from .devices import *
 from .plans import *
+from .utils import *
 
 from apstools.utils import *

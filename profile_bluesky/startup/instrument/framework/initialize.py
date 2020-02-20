@@ -14,6 +14,17 @@ __all__ = [
 from ..session_logs import logger
 logger.info(__file__)
 
+import os, sys
+sys.path.append(
+    os.path.abspath(
+        os.path.join(
+            os.path.dirname(__file__),
+            "..",
+            "..",
+        )
+    )
+)
+
 # Set up a RunEngine and use metadata backed by a sqlite file.
 from bluesky import RunEngine
 from bluesky.utils import get_history

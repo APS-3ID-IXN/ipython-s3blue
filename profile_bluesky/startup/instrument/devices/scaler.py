@@ -11,6 +11,7 @@ from ..session_logs import logger
 logger.info(__file__)
 
 from ophyd.scaler import ScalerCH
+from ..utils import safeOphydName
 
 
 class MyScaler(ScalerCH):
