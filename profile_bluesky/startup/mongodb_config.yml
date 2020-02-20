@@ -3,14 +3,14 @@ metadatastore:
     module: 'databroker.headersource.mongo'
     class: 'MDS'
     config:
-        host: 'dy.xray.aps.anl.gov'
+        host: 'otz.xray.aps.anl.gov'
         port: 27017
-        database: 'metadatastore-production-v1'
+        database: 's3blue-metadatastore-production-v1'
         timezone: 'US/Central'
 assets:
     module: 'databroker.assets.mongo'
     class: 'Registry'
     config:
-        host: 'dy.xray.aps.anl.gov'
+        host: 'otz.xray.aps.anl.gov'
         port: 27017
-        database: 'filestore-production-v1'
+        database: 's3blue-filestore-production-v1'
