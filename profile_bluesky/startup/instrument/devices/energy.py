@@ -10,9 +10,11 @@ __all__ = [
 from ..session_logs import logger
 logger.info(__file__)
 
-import apstools.devices
+import apstools.synApps
+from ophyd import DeviceStatus
 
-class SscanRecord(apstools.devices.sscanRecord):
+
+class SscanRecord(apstools.synApps.SscanRecord):
     
     def set(self, value, **kwargs):
         """interface to use bps.mv()"""
