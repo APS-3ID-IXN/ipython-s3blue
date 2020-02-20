@@ -16,8 +16,20 @@ import apstools.devices
 from ..framework import sd
 
 
-aps = apstools.devices.ApsMachineParametersDevice(name="aps")
+class MyApsDevice(apstools.devices.ApsMachineParametersDevice):
+    # these signals did not connect
+    orbit_correction = None
+    global_feedback = None
+    global_feedback_h = None
+    global_feedback_v = None
+
+aps = MyApsDevice(name="aps")
 sd.baseline.append(aps)
 
-undulator = apstools.devices.ApsUndulatorDual("ID03", name="undulator")
+
+class MyUndulatorDevice(apstools.devices.ApsUndulatorDual):
+    # no downstream insertion device?
+    downstream = None
+
+undulator = MyUndulatorDevice("ID03", name="undulator")
 sd.baseline.append(undulator)
