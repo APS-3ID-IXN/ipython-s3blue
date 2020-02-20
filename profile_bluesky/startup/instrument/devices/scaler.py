@@ -53,16 +53,16 @@ class MyScaler(ScalerCH):
                                     "on the scaler.  The named channels are "
                                     "{}".format(ch, tuple(name_map)))
 
-        self.channels.kind = Kind.normal
+        self.channels.kind = "normal"
         self.channels.read_attrs = list(read_attrs)
         self.channels.configuration_attrs = list(read_attrs)
 
         for i, s in enumerate(self.channels.component_names):
             channel = getattr(self.channels, s)
             if s in read_attrs:
-                channel.s.kind = Kind.hinted
+                channel.s.kind = "hinted"
             else:
-                channel.s.kind = Kind.normal
+                channel.s.kind = "normal"
 
 scaler = MyScaler('3idb:scaler1', name='scaler')
 scaler.select_channels()
