@@ -6,13 +6,14 @@ APS only: connect with facility information
 __all__ = [
     'aps', 
     'undulator',
+    'undulator_downstream',
     ]
 
 from ..session_logs import logger
 logger.info(__file__)
 
 import apstools.devices
-
+from ophyd import Component
 from ..framework import sd
 
 
@@ -28,8 +29,12 @@ sd.baseline.append(aps)
 
 
 class MyUndulatorDevice(apstools.devices.ApsUndulatorDual):
-    # no downstream insertion device?
+    # no downstream uses just the bare PV prefix, no "dn" suffix
+    # TODO:make this work
+    # NOT ID03ID03:AccessSecurity
+    # downstream = Component(apstools.devices.ApsUndulator, "ID03:")
     downstream = None
 
 undulator = MyUndulatorDevice("ID03", name="undulator")
+undulator_downstream = apstools.devices.ApsUndulator("ID03:", name="undulator_downstream")
 sd.baseline.append(undulator)

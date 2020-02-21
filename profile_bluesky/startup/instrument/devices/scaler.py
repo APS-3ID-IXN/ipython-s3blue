@@ -66,24 +66,3 @@ class MyScaler(ScalerCH):
 
 scaler = MyScaler('3idb:scaler1', name='scaler')
 scaler.select_channels()
-
-"""
-Q: Should we alias the specific channels as global symbols?
-
-See example: https://github.com/aps-8id-dys/ipython-8idiuser/blob/148-layout/profile_bluesky/startup/instrument/devices/scaler.py#L130-L141
-
-In [9]: device_read2table(scaler)                                                                                       
-=============== =========== ==========================
-name            value       timestamp                 
-=============== =========== ==========================
-Time            100000000.0 2020-02-20 12:52:35.610616
-NRIXS__delayed1 0.0         2020-02-20 12:52:35.610616
-NRIXS__delayed2 0.0         2020-02-20 12:52:35.610616
-NRIXS__delayed3 0.0         2020-02-20 12:52:35.610616
-NFS__total      0.0         2020-02-20 12:52:35.610616
-NFS__delayed    0.0         2020-02-20 12:52:35.610616
-NRIXS_tot_sum   0.0         2020-02-20 12:52:35.610616
-NRIXS_dlyd_sum  0.0         2020-02-20 12:52:35.610616
-scaler_time     10.0        2020-02-20 12:52:35.610616
-=============== =========== ==========================
-"""

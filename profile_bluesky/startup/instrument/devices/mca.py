@@ -4,7 +4,8 @@ MCA support
 """
 
 __all__ = [
-    'mca',
+    'mca_a',
+    'mca_d',
     ]
 
 from ..session_logs import logger
@@ -12,4 +13,5 @@ logger.info(__file__)
 
 from ophyd.mca import EpicsMCA
 
-mca = EpicsMCA("3ida:mca1", name="mca")
+mca_a = EpicsMCA("3ida:mca1", name="mca_a")
+mca_d = EpicsMCA("3idd:mca1", name="mca_d")

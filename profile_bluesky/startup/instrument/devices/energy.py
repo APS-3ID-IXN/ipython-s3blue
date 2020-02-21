@@ -5,13 +5,14 @@ energy and sscan record
 
 __all__ = [
     'energy_scan',
+    'hrm_energy',
     ]
 
 from ..session_logs import logger
 logger.info(__file__)
 
 import apstools.synApps
-from ophyd import DeviceStatus
+from ophyd import DeviceStatus, EpicsSignal
 
 
 class SscanRecord(apstools.synApps.SscanRecord):
@@ -36,3 +37,9 @@ class SscanRecord(apstools.synApps.SscanRecord):
 
 
 energy_scan = SscanRecord("3idb:scan1", name="energy_scan")
+
+hrm_energy = EpicsSignal(
+    "3idb:HR3_ERdbkAO", 	# read_pv
+    write_pv = "3idb:HR3_EAO",
+    name = "hrm_energy"
+)

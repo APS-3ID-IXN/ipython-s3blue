@@ -13,6 +13,7 @@ logger.info(__file__)
 
 from bluesky import plans as bp
 from bluesky import plan_stubs as bps
+# FIXME: mca -> mca_a or mca_d
 from ..devices import mca, neat_stage, scaler
 from .optimize_energy import optimize_energy_per_step
 from .optimize_energy import optimize_energy_with_sscan_record
