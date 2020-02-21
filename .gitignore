@@ -13,3 +13,9 @@ mViewer.log
 .project
 .pydevproject
 .settings
+
+# NFS crud
+.nfs*
+
+# session logs
+.logs/
