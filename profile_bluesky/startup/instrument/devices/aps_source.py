@@ -29,7 +29,8 @@ sd.baseline.append(aps)
 
 
 class MyUndulatorDevice(apstools.devices.ApsUndulatorDual):
-    # no downstream uses just the bare PV prefix, no "dn" suffix
+    # no downstream
+    # uses just the bare PV prefix, no "dn" suffix
     # TODO:make this work
     # NOT ID03ID03:AccessSecurity
     # downstream = Component(apstools.devices.ApsUndulator, "ID03:")

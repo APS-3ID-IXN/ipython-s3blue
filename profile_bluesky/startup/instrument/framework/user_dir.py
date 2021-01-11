@@ -27,5 +27,5 @@ user_dir = os.path.join(
 )
 sys.path.append(user_dir)
 
-logger.info(f"User code directory: {user_dir}")
+logger.info("User code directory: %s", user_dir)
 del user_dir

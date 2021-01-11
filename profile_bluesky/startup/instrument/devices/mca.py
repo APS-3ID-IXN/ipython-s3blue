@@ -13,5 +13,5 @@ logger.info(__file__)
 
 from ophyd.mca import EpicsMCA
 
-mca_a = EpicsMCA("3ida:mca1", name="mca_a")
-mca_d = EpicsMCA("3idd:mca1", name="mca_d")
+mca_a = EpicsMCA("3ida:mca1", name="mca_a", labels=["mca",])
+mca_d = EpicsMCA("3idd:mca1", name="mca_d", labels=["mca",])

@@ -7,10 +7,10 @@ __all__ = []
 from ..session_logs import logger
 logger.info(__file__)
 
+from datetime import datetime
 import apstools
 import bluesky
 import databroker
-from datetime import datetime
 import epics
 import getpass
 import h5py
@@ -41,6 +41,7 @@ RE.md['versions']['ophyd'] = ophyd.__version__
 RE.md['versions']['databroker'] = databroker.__version__
 RE.md['versions']['apstools'] = apstools.__version__
 RE.md['versions']['epics'] = epics.__version__
+RE.md['versions']['h5py'] = h5py.__version__
 RE.md['versions']['numpy'] = numpy.__version__
 RE.md['versions']['matplotlib'] = matplotlib.__version__
 RE.md['versions']['spec2nexus'] = spec2nexus.__version__
